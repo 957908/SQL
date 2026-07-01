@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Mastery Academy - Smart Study Interface</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+
+    <!-- App Container -->
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-database database-logo"></i>
+                <h2>SQL Academy</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="menu-item active" data-level="1">
+                        <span class="badge">L1</span>
+                        <span class="menu-text" data-en="SQL Fundamentals" data-mr="SQL मूलभूत गोष्टी">SQL Fundamentals</span>
+                    </li>
+                    <li class="menu-item" data-level="2">
+                        <span class="badge">L2</span>
+                        <span class="menu-text" data-en="Intermediate SQL" data-mr="मध्यम पातळीवरील SQL">Intermediate SQL</span>
+                    </li>
+                    <li class="menu-item" data-level="3">
+                        <span class="badge">L3</span>
+                        <span class="menu-text" data-en="Table Joins" data-mr="डेटाबेस जॉईन्स">Table Joins</span>
+                    </li>
+                    <li class="menu-item" data-level="4">
+                        <span class="badge">L4</span>
+                        <span class="menu-text" data-en="Advanced SQL" data-mr="प्रगत पातळीवरील SQL">Advanced SQL</span>
+                    </li>
+                    <li class="menu-item" data-level="5">
+                        <span class="badge">L5</span>
+                        <span class="menu-text" data-en="Window Functions" data-mr="विंडो फंक्शन्स">Window Functions</span>
+                    </li>
+                    <li class="menu-item" data-level="6">
+                        <span class="badge">L6</span>
+                        <span class="menu-text" data-en="Database Design" data-mr="डेटाबेस डिझाईन">Database Design</span>
+                    </li>
+                    <li class="menu-item" data-level="7">
+                        <span class="badge">L7</span>
+                        <span class="menu-text" data-en="Programming SQL" data-mr="प्रोग्रामिंग SQL">Programming SQL</span>
+                    </li>
+                    <li class="menu-item" data-level="8">
+                        <span class="badge">L8</span>
+                        <span class="menu-text" data-en="Performance Tuning" data-mr="परफॉर्मन्स ट्यूनिंग">Performance Tuning</span>
+                    </li>
+                    <li class="menu-item" data-level="9">
+                        <span class="badge">L9</span>
+                        <span class="menu-text" data-en="Transactions & Security" data-mr="व्यवहार आणि सुरक्षा">Transactions & Security</span>
+                    </li>
+                    <li class="menu-item" data-level="10">
+                        <span class="badge">L10</span>
+                        <span class="menu-text" data-en="SQL Analytics" data-mr="डेटा विश्लेषणासाठी SQL">SQL Analytics</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>Designed for Placement Prep</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Header Panel -->
+            <header class="main-header">
+                <div class="header-title">
+                    <h1 id="level-title">Level 01: SQL Fundamentals</h1>
+                    <p id="level-subtitle">Start your journey with databases and basic table queries.</p>
+                </div>
+                <div class="header-controls">
+                    <!-- Language Toggle -->
+                    <button class="control-btn lang-toggle" id="lang-btn">
+                        <i class="fa-solid fa-language"></i>
+                        <span>English / मराठी</span>
+                    </button>
+                    <!-- Theme Toggle -->
+                    <button class="control-btn theme-toggle" id="theme-btn">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Grid Layout: Learn & Practice -->
+            <div class="content-grid">
+                
+                <!-- Left Panel: Bilingual Study Guide -->
+                <section class="learn-panel card">
+                    <div class="panel-header">
+                        <h3><i class="fa-solid fa-book-open"></i> Study Notes</h3>
+                        <div class="note-tabs">
+                            <button class="tab-btn active" id="tab-study">Topics</button>
+                            <button class="tab-btn" id="tab-qa">Interview Prep</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Scrollable notes container -->
+                    <div class="panel-body scrollable" id="notes-content">
+                        <!-- Dynamic content injected here -->
+                    </div>
+                </section>
+
+                <!-- Right Panel: Interactive SQL Runner & Sandbox -->
+                <section class="sandbox-panel">
+                    
+                    <!-- Sandbox Console Card -->
+                    <div class="console-card card">
+                        <div class="panel-header">
+                            <h3><i class="fa-solid fa-terminal"></i> Live SQL Playground</h3>
+                            <div class="database-selector">
+                                <span class="db-label">Active Tables:</span>
+                                <select id="table-preview-select">
+                                    <option value="employees">employees</option>
+                                    <option value="departments">departments</option>
+                                    <option value="projects">projects</option>
+                                    <option value="sales">sales</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <!-- SQL Editor Area -->
+                            <div class="editor-container">
+                                <div class="line-numbers">
+                                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                                </div>
+                                <textarea id="sql-editor" placeholder="-- Type your SQL query here...&#10;SELECT * FROM employees WHERE salary > 50000;"></textarea>
+                            </div>
+                            <div class="editor-actions">
+                                <button class="action-btn run-btn" id="run-query-btn">
+                                    <i class="fa-solid fa-play"></i> Run Query
+                                </button>
+                                <button class="action-btn reset-btn" id="reset-editor-btn">
+                                    <i class="fa-solid fa-rotate-left"></i> Reset
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sandbox Result Card -->
+                    <div class="result-card card">
+                        <div class="panel-header">
+                            <h3><i class="fa-solid fa-table"></i> Query Results</h3>
+                            <span class="status-indicator" id="query-status">Ready</span>
+                        </div>
+                        <div class="panel-body scrollable" id="results-table-container">
+                            <p class="empty-state">Run a SQL query above to see output tables here.</p>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Script Loading -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+/* 🎨 SQL Mastery Academy: Global Stylesheet */
+
+/* CSS Variables for Themes */
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --border-color: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --code-bg: #090d16;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-blur: blur(12px);
+}
+
+.light-mode {
+    --bg-primary: #f1f5f9;
+    --bg-secondary: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-color: #0284c7;
+    --accent-hover: #0369a1;
+    --success-color: #059669;
+    --error-color: #dc2626;
+    --code-bg: #f8fafc;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-blur: blur(8px);
+}
+
+/* Reset and Core Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* App Wrapper Grid */
+.app-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* 1. Sidebar Section */
+.sidebar {
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.database-logo {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+.sidebar-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.sidebar-menu {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.menu-item.active {
+    border-left: 4px solid var(--accent-color);
+}
+
+.badge {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.menu-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.sidebar-footer {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* 2. Main Content Area */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+/* Main Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.header-title h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.header-title p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.header-controls {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.control-btn {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+}
+
+.control-btn:hover {
+    background-color: var(--border-color);
+}
+
+/* Grid Layout */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* 3. Cards Styling */
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.panel-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.scrollable {
+    overflow-y: auto;
+}
+
+/* Scrollbars */
+.scrollable::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 3px;
+}
+
+/* 4. Study Notes Panel (Left) */
+.note-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Notes Text Layout */
+.topic-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.topic-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.topic-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--accent-color);
+}
+
+.explanation-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.lang-box {
+    background-color: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.lang-box h5 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.lang-box p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Q&A Accordion */
+.qa-item {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.qa-question {
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qa-answer {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    background-color: var(--bg-secondary);
+    display: none;
+}
+
+/* 5. SQL Sandbox Panel (Right) */
+.sandbox-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+}
+
+.console-card {
+    height: 55%;
+}
+
+.result-card {
+    height: 45%;
+}
+
+.database-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.db-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.database-selector select {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+/* Code Editor */
+.editor-container {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.line-numbers {
+    width: 35px;
+    background-color: rgba(0,0,0,0.2);
+    border-right: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.75rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+}
+
+#sql-editor {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    padding: 0.75rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    resize: none;
+    outline: none;
+    line-height: 1.6;
+}
+
+.editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.action-btn {
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow);
+}
+
+.run-btn {
+    background-color: var(--success-color);
+    color: #ffffff;
+}
+
+.run-btn:hover {
+    filter: brightness(0.9);
+}
+
+.reset-btn {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.reset-btn:hover {
+    background-color: var(--text-secondary);
+    color: var(--bg-primary);
+}
+
+/* Syntax Highlighting */
+.sql-code-block {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    margin: 0.75rem 0;
+    overflow-x: auto;
+    color: #f8fafc;
+}
+
+/* Tables and Output */
+table.output-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+}
+
+table.output-table th {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+}
+
+table.output-table td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 0.75rem;
+    color: var(--text-secondary);
+}
+
+table.output-table tr:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.empty-state {
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 0.85rem;
+    margin: 2rem 0;
+}
+
+.error-text {
+    color: var(--error-color);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+}
+
+.status-indicator {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.status-indicator.ready {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: var(--success-color);
+}
+
+.status-indicator.error {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--error-color);
+}
